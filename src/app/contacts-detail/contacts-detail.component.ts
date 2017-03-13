@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ContactsService } from '../contacts.service';
+import { ContactService } from '../contacts.service';
 import { Contact } from '../models/contact';
 
 @Component({
@@ -13,10 +13,11 @@ export class ContactsDetailComponent implements OnInit {
 
   constructor(
     private route:ActivatedRoute,
-    private contactService:ContactsService
+    private contactService:ContactService
   ) {}
 
   ngOnInit() {
-    this.contact = this.contactService.getContact(this.route.snapshot.params.id);
+    this.contactService.getContact(this.route.snapshot.params.id)
+      .subscribe(contact => this.contact = contact);
   }
 }

@@ -1,12 +1,28 @@
-import { Injectable } from '@angular/core';
-import { CONTACT_DATA } from './data/contact-data';
+import { Injectable, Inject } from '@angular/core';
+import { Http } from '@angular/http';
+import 'rxjs/add/operator/map';
+
+import { API_ENDPOINT } from '../app/token';
+import { Contact } from './models/contact';
+
 
 @Injectable()
-export class ContactsService {
+export class ContactService {
+
+  constructor(
+    private http:Http,
+    @Inject(API_ENDPOINT) private api:string
+  ) {}
+
   getContacts () {
-    return CONTACT_DATA;
+    console.log(this.api);
+
+    return this.http.get(`${this.api}/contacts`)
+      .map(res => res.json().items as Contact[]);
   }
+
   getContact (id:number|string) {
-    return CONTACT_DATA.find(c => c.id == id);
+    return this.http.get(`${this.api}/contacts/${id}`)
+      .map(res => res.json().item as Contact);
   }
 }
