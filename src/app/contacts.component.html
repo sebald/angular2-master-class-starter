@@ -1,4 +1,7 @@
 <md-toolbar color="primary">Contacts</md-toolbar>
-<h1>
-  {{title}}
-</h1>
+<md-list>
+  <md-list-item>
+    <img md-list-avatar [src]="contact.image" alt="Picture of {{ contact.name }}">
+    <h3 md-line>{{ contact.name }}</h3>
+  </md-list-item>
+</md-list>
