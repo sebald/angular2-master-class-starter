@@ -1,10 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/debounceTime';
-import 'rxjs/add/operator/distinctUntilChanged';
-import 'rxjs/add/operator/merge';
-import 'rxjs/add/operator/switchMap';
 
 import { Contact } from '../models/contact';
 import { ContactService } from '../contacts.service';
@@ -24,14 +20,7 @@ export class ContactsListComponent implements OnInit {
 
   ngOnInit() {
     this.terms$ = new Subject();
-
-    this.contacts = Observable.merge(
-      this.contactService.getContacts(),
-      this.terms$
-        .debounceTime(400)
-        .distinctUntilChanged()
-        .switchMap(term => this.contactService.search(term))
-    );
+    this.contacts = this.contactService.search(this.terms$);
   }
 
   trackByContactId (idx:number, contact:Contact) {
