@@ -8,7 +8,7 @@ import { TabsComponent } from "../tabs/tabs.component";
 })
 export class TabComponent implements OnInit {
   @Input() title:string;
-  @Input() selected:boolean;
+  selected:boolean;
 
   constructor(
     private tabs:TabsComponent
