@@ -32,4 +32,9 @@ export class ContactService {
       contact
     );
   }
+
+  search (term:string) {
+    return this.http.get(`${this.api}/search?text=${term}`)
+      .map(res => res.json().items as Contact[]);
+  }
 }
