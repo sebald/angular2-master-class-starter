@@ -9,5 +9,5 @@ import { Contact } from '../models/contact';
 export class ContactsDetailComponent {
   @Input() contact:Contact;
   @Output() edit = new EventEmitter<Contact>();
-  @Output() back = new EventEmitter<Contact>();
+  @Output() back = new EventEmitter<void>();
 }
