@@ -5,19 +5,21 @@ import { MaterialModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { RouterModule } from '@angular/router';
-import { APP_ROUTES } from './app.routes';
+import { FormsModule } from "@angular/forms";
 
+import { API_ENDPOINT } from './token';
+import { APP_ROUTES } from './app.routes';
 import { ContactService } from './contacts.service';
 import { ContactsAppComponent } from './contacts.component';
 import { ContactsListComponent } from './contacts-list/contacts-list.component';
 import { ContactsDetailComponent } from './contacts-detail/contacts-detail.component';
-import { API_ENDPOINT } from './token';
 import { ContactsEditorComponent } from './contacts-editor/contacts-editor.component';
-import { FormsModule } from "@angular/forms";
 import { ContactsDetailViewComponent } from './contacts-detail-view/contacts-detail-view.component';
+import { TabComponent } from './tabs/tab/tab.component';
+import { TabsComponent } from './tabs/tabs/tabs.component';
 
 @NgModule({
-  declarations: [ContactsAppComponent, ContactsListComponent, ContactsDetailComponent, ContactsEditorComponent, ContactsDetailViewComponent],
+  declarations: [ContactsAppComponent, ContactsListComponent, ContactsDetailComponent, ContactsEditorComponent, ContactsDetailViewComponent, TabComponent, TabsComponent],
   imports: [
     BrowserModule,
     HttpModule,
