@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/debounceTime';
+import 'rxjs/add/operator/distinctUntilChanged';
+
 import { Contact } from '../models/contact';
 import { ContactService } from '../contacts.service';
 
@@ -10,6 +14,7 @@ import { ContactService } from '../contacts.service';
 })
 export class ContactsListComponent implements OnInit {
   contacts: Observable<Contact[]>;
+  terms$:Subject<string>;
 
   constructor(
     private contactService:ContactService
@@ -17,6 +22,12 @@ export class ContactsListComponent implements OnInit {
 
   ngOnInit() {
     this.contacts = this.contactService.getContacts();
+    this.terms$ = new Subject();
+
+    this.terms$
+      .debounceTime(400)
+      .distinctUntilChanged()
+      .subscribe(term => this.search(term));
   }
 
   trackByContactId (idx:number, contact:Contact) {
