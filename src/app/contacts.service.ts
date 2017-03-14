@@ -25,4 +25,11 @@ export class ContactService {
     return this.http.get(`${this.api}/contacts/${id}`)
       .map(res => res.json().item as Contact);
   }
+
+  updateContact (contact: Contact) {
+    return this.http.put(
+      `${this.api}/contacts/${contact.id}`,
+      contact
+    );
+  }
 }
