@@ -11,7 +11,7 @@ import { Observable } from "rxjs/Observable";
   styleUrls: ['./contacts-detail-view.component.css']
 })
 export class ContactsDetailViewComponent implements OnInit {
-  contact: Contact = <Contact>{ address: {} };
+  contact: Contact;
 
   constructor(
     private route:ActivatedRoute,
