@@ -7,7 +7,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from "@angular/forms";
 
-import { API_ENDPOINT } from './token';
+import { API_ENDPOINT, CONFIRMATION_GUARD } from './token';
 import { APP_ROUTES } from './app.routes';
 import { ContactService } from './contacts.service';
 import { ContactsAppComponent } from './contacts.component';
@@ -19,6 +19,7 @@ import { TabComponent } from './tabs/tab/tab.component';
 import { TabsComponent } from './tabs/tabs/tabs.component';
 import { ContactsDashboardComponent } from './contacts-dashboard/contacts-dashboard.component';
 import { AboutComponent } from './about/about.component';
+import { doConfirm } from "./guards";
 
 @NgModule({
   declarations: [ContactsAppComponent, ContactsListComponent, ContactsDetailComponent, ContactsEditorComponent, ContactsDetailViewComponent, TabComponent, TabsComponent, ContactsDashboardComponent, AboutComponent],
@@ -35,6 +36,10 @@ import { AboutComponent } from './about/about.component';
     {
       provide: API_ENDPOINT,
       useValue: 'http://localhost:4201/api'
+    },
+    {
+      provide: CONFIRMATION_GUARD,
+      useValue: doConfirm
     }
   ],
   bootstrap: [ContactsAppComponent]
