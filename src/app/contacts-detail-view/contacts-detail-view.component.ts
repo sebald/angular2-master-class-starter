@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { ContactService } from '../contacts.service';
 import { Contact } from '../models/contact';
 import { Observable } from "rxjs/Observable";
+import 'rxjs/add/operator/switchMap';
 
 
 @Component({
@@ -20,8 +21,8 @@ export class ContactsDetailViewComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    const {id} = this.route.snapshot.params;
-    this.contactService.getContact(id)
+    this.route.params
+      .switchMap(({ id }) => this.contactService.getContact(id))
       .subscribe(c => this.contact = c);
   }
 
