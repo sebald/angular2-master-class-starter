@@ -12,6 +12,7 @@
   <a
     md-list-item
     *ngFor="let contact of contacts | async trackBy:trackByContactId"
+    routerLinkActive="active"
     [routerLink]="['/contacts', contact.id]"
   >
     <img md-list-avatar [src]="contact?.image" alt="Picture of {{ contact?.name }}">
