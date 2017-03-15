@@ -4,6 +4,7 @@ import { ContactsDetailViewComponent } from './contacts-detail-view/contacts-det
 import { ContactsDashboardComponent } from "./contacts-dashboard/contacts-dashboard.component";
 import { AboutComponent } from "./about/about.component";
 import { CONFIRMATION_GUARD } from "./token";
+import { ContactResolver } from "./shared/contacts.resolver";
 
 export const APP_ROUTES:Routes = [{
   path: '',
@@ -14,7 +15,10 @@ export const APP_ROUTES:Routes = [{
     {
       path: 'contacts/:id/edit',
       component: ContactsEditorComponent,
-      canDeactivate: [CONFIRMATION_GUARD]
+      canDeactivate: [CONFIRMATION_GUARD],
+      resolve: {
+        contact: ContactResolver
+      }
     }
   ]
 }, {

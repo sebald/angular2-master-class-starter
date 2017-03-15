@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ContactService } from '../contacts.service';
 import { Contact } from '../models/contact';
 import { hasWarnOnClosing } from "../guards";
+import 'rxjs/add/operator/map';
 
 @Component({
   selector: 'trm-contacts-editor',
@@ -20,7 +21,8 @@ export class ContactsEditorComponent implements OnInit, hasWarnOnClosing {
   ) {}
 
   ngOnInit() {
-    this.contactService.getContact(this.route.snapshot.params.id)
+    this.route.data
+      .map(({ contact }) => contact)
       .subscribe(contact => this.contact = contact);
   }
 
