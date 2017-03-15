@@ -1,3 +1,3 @@
-export function doConfirm() {
-  return window.confirm('Navigate away without saving?');
+export function confirmNavigationGuard(component) {
+  return !component.warnOnClosing || window.confirm('Navigate away without saving?');
 }

@@ -19,7 +19,7 @@ import { TabComponent } from './tabs/tab/tab.component';
 import { TabsComponent } from './tabs/tabs/tabs.component';
 import { ContactsDashboardComponent } from './contacts-dashboard/contacts-dashboard.component';
 import { AboutComponent } from './about/about.component';
-import { doConfirm } from "./guards";
+import { confirmNavigationGuard } from "./guards";
 
 @NgModule({
   declarations: [ContactsAppComponent, ContactsListComponent, ContactsDetailComponent, ContactsEditorComponent, ContactsDetailViewComponent, TabComponent, TabsComponent, ContactsDashboardComponent, AboutComponent],
@@ -39,7 +39,7 @@ import { doConfirm } from "./guards";
     },
     {
       provide: CONFIRMATION_GUARD,
-      useValue: doConfirm
+      useValue: confirmNavigationGuard
     }
   ],
   bootstrap: [ContactsAppComponent]

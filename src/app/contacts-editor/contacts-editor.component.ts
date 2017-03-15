@@ -10,6 +10,7 @@ import { Contact } from '../models/contact';
 })
 export class ContactsEditorComponent implements OnInit {
   contact:Contact = <Contact>{ address: {} };
+  warnOnClosing = true;
 
   constructor(
     private route:ActivatedRoute,
@@ -23,6 +24,7 @@ export class ContactsEditorComponent implements OnInit {
   }
 
   save (contact:Contact) {
+    this.warnOnClosing = false;
     this.contactService.updateContact(contact)
       .subscribe(() => this.router.navigate(['..'], { relativeTo: this.route }))
   }
