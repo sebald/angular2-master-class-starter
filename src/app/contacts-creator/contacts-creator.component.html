@@ -14,8 +14,11 @@
               Name is required and must be at least 3 character long, is {{ name?.errors?.minlength?.actualLength }}.
             </md-hint>
           </md-input-container>
-          <md-input-container fxFlex>
-            <input ngModel mdInput placeholder="Email" name="email">
+          <md-input-container fxFlex [dividerColor]="email.valid ? 'pristine' : 'warn'">
+            <input #email="ngModel" ngModel mdInput placeholder="Email" name="email" trmValidateEmail>
+            <md-hint align="end" *ngIf="!email.valid && !email.pristine">
+              Not a valid email address.
+            </md-hint>
           </md-input-container>
           <md-input-container fxFlex>
             <input ngModel mdInput placeholder="Birthday" name="birthday" type="date">

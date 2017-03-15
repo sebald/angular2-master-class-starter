@@ -21,9 +21,10 @@ import { ContactsDashboardComponent } from './contacts-dashboard/contacts-dashbo
 import { confirmNavigationGuard } from "./guards";
 import { ContactResolver } from "./shared/contacts.resolver";
 import { ContactsCreatorComponent } from './contacts-creator/contacts-creator.component';
+import { EmailValidatorDirective } from './email-validator.directive';
 
 @NgModule({
-  declarations: [ContactsAppComponent, ContactsListComponent, ContactsDetailComponent, ContactsEditorComponent, ContactsDetailViewComponent, TabComponent, TabsComponent, ContactsDashboardComponent, ContactsCreatorComponent],
+  declarations: [ContactsAppComponent, ContactsListComponent, ContactsDetailComponent, ContactsEditorComponent, ContactsDetailViewComponent, TabComponent, TabsComponent, ContactsDashboardComponent, ContactsCreatorComponent, EmailValidatorDirective],
   imports: [
     BrowserModule,
     HttpModule,
