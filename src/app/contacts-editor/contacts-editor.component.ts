@@ -2,13 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ContactService } from '../contacts.service';
 import { Contact } from '../models/contact';
+import { hasWarnOnClosing } from "../guards";
 
 @Component({
   selector: 'trm-contacts-editor',
   templateUrl: './contacts-editor.component.html',
   styleUrls: ['./contacts-editor.component.css']
 })
-export class ContactsEditorComponent implements OnInit {
+export class ContactsEditorComponent implements OnInit, hasWarnOnClosing {
   contact:Contact = <Contact>{ address: {} };
   warnOnClosing = true;
 
