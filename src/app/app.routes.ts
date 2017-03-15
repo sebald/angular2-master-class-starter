@@ -4,12 +4,14 @@ import { ContactsDetailViewComponent } from './contacts-detail-view/contacts-det
 import { ContactsDashboardComponent } from "./contacts-dashboard/contacts-dashboard.component";
 import { CONFIRMATION_GUARD } from "./token";
 import { ContactResolver } from "./shared/contacts.resolver";
+import { ContactsCreatorComponent } from "./contacts-creator/contacts-creator.component";
 
 export const APP_ROUTES:Routes = [{
   path: '',
   component: ContactsDashboardComponent,
   children: [
     { path: '', redirectTo: 'contacts/0', pathMatch: 'full' },
+    { path: 'contacts/new', component: ContactsCreatorComponent },
     { path: 'contacts/:id', component: ContactsDetailViewComponent },
     {
       path: 'contacts/:id/edit',

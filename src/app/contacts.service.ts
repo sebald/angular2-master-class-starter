@@ -14,7 +14,6 @@ import { Contact } from './models/contact';
 
 @Injectable()
 export class ContactService {
-
   constructor(
     private http: Http,
     @Inject(API_ENDPOINT) private api: string
@@ -37,6 +36,13 @@ export class ContactService {
       `${this.api}/contacts/${contact.id}`,
       contact
     );
+  }
+
+  addContact (contact: Contact) {
+    return this.http.post(
+      `${this.api}/contacts`,
+      contact
+    ).map(res => res.json().item as Contact);
   }
 
   search(terms: Observable<string>, debounceMs = 400) {

@@ -20,9 +20,10 @@ import { TabsComponent } from './tabs/tabs/tabs.component';
 import { ContactsDashboardComponent } from './contacts-dashboard/contacts-dashboard.component';
 import { confirmNavigationGuard } from "./guards";
 import { ContactResolver } from "./shared/contacts.resolver";
+import { ContactsCreatorComponent } from './contacts-creator/contacts-creator.component';
 
 @NgModule({
-  declarations: [ContactsAppComponent, ContactsListComponent, ContactsDetailComponent, ContactsEditorComponent, ContactsDetailViewComponent, TabComponent, TabsComponent, ContactsDashboardComponent],
+  declarations: [ContactsAppComponent, ContactsListComponent, ContactsDetailComponent, ContactsEditorComponent, ContactsDetailViewComponent, TabComponent, TabsComponent, ContactsDashboardComponent, ContactsCreatorComponent],
   imports: [
     BrowserModule,
     HttpModule,
