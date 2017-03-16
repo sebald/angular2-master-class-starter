@@ -24,7 +24,17 @@ import { ContactsCreatorComponent } from './contacts-creator/contacts-creator.co
 import { EmailValidatorDirective } from './email-validator.directive';
 
 @NgModule({
-  declarations: [ContactsAppComponent, ContactsListComponent, ContactsDetailComponent, ContactsEditorComponent, ContactsDetailViewComponent, TabComponent, TabsComponent, ContactsDashboardComponent, ContactsCreatorComponent, EmailValidatorDirective],
+  declarations: [ContactsAppComponent,
+   ContactsListComponent,
+   ContactsDetailComponent,
+   ContactsEditorComponent,
+   ContactsDetailViewComponent,
+   TabComponent,
+   TabsComponent,
+   ContactsDashboardComponent,
+   ContactsCreatorComponent,
+   EmailValidatorDirective
+  ],
   imports: [
     BrowserModule,
     HttpModule,
